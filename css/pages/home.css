@@ -5,5 +5,13 @@
 /* vendors */
 
 /* components */
+@import '../components/hero.css';
+@import '../components/testimonials.css';
+@import '../components/contact-us.css';
+@import '../components/subscribe.css';
 
 /* CUSTOM STYLE FOR THIS PAGE GOES BELOW THIS COMMENT */
+
+.about-us .section-texts {
+  padding: 2rem;
+}

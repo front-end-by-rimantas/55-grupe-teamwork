@@ -1,0 +1,22 @@
+export function ourTeam() {
+    const HTML = `
+        <div class="container bg-grey">
+            <div class="row">
+                <div class="col-12 col-lg-6 m-lg-3 section-texts section-texts-center">
+                    <div class="section-tag">Our team</div>
+                    <h2 class="section-title">Electricity Service Offerings</h2>
+                    <p class="section-desc">From residential households to commercial enterprises, we provide reliable, efficient, and sustainable energy solutions.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-3">CARD</div>
+                <div class="col-12 col-md-6 col-lg-3">CARD</div>
+                <div class="col-12 col-md-6 col-lg-3">CARD</div>
+                <div class="col-12 col-md-6 col-lg-3">CARD</div>
+            </div>
+        </div>`;
+
+    document
+        .getElementById('app')
+        .insertAdjacentHTML('beforeend', HTML);
+}
