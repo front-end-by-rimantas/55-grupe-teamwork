@@ -13,6 +13,8 @@ import { services } from "../components/services.js";
 import { subscribe } from "../components/subscribe.js";
 import { testimonials } from "../components/testimonials.js";
 
+howItWorks();
+
 header();
 hero();
 aboutUs();
