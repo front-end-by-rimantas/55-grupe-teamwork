@@ -1,0 +1,67 @@
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: #000;
+}
+.main-header .header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  border-radius: 0.5rem;
+}
+.main-header .logo {
+  width: auto;
+  height: 2.5rem;
+}
+.main-header .main-nav {
+  display: none;
+  align-items: center;
+  gap: 3rem;
+}
+.main-header .link {
+  color: #fff;
+  font-size: 1.3rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+.main-header .hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  width: 1.8em;
+  height: 1.8em;
+  border: 1px solid #fff;
+  padding: 0.3em;
+  border-radius: 0.3em;
+}
+
+@media (min-width: 992px) {
+  .main-header {
+    background-color: transparent;
+  }
+  .main-header .header-content {
+    background-color: #7778;
+    backdrop-filter: blur(7px);
+    padding: 1.5rem;
+  }
+  .main-header.header-fixed {
+    background-color: #000;
+  }
+  .main-header.header-fixed .header-content {
+    background-color: inherit;
+    backdrop-filter: none;
+    padding: 1rem 0;
+  }
+  .main-header .main-nav {
+    display: flex;
+  }
+  .main-header .hamburger {
+    display: none;
+  }
+}
