@@ -47,4 +47,20 @@ export function howItWorks() {
     document
         .getElementById('app')
         .insertAdjacentHTML('beforeend', HTML);
+
+    const buttonsDOM = document.querySelectorAll('.how-it-works-buttons button');
+    const cardsDOM = document.querySelectorAll('.how-it-works-content .card');
+    let activeIndex = 0;
+
+    for (let i = 0; i < buttonsDOM.length; i++) {
+        buttonsDOM[i].addEventListener('click', () => {
+            buttonsDOM[activeIndex].classList.remove('active');
+            buttonsDOM[i].classList.add('active');
+
+            cardsDOM[activeIndex].classList.remove('active');
+            cardsDOM[i].classList.add('active');
+
+            activeIndex = i;
+        });
+    }
 }
