@@ -1,3 +1,9 @@
+:root {
+  --color-primary: #c90f16;
+  --color-grey: #f3f5f7;
+  --color-dark: #060404;
+}
+
 body,
 body * {
   margin: 0;
@@ -19,13 +25,13 @@ img {
 }
 
 .bg-grey {
-  background-color: #f3f5f7;
+  background-color: var(--color-grey);
 }
 .bg-dark {
-  background-color: #060404;
+  background-color: var(--color-dark);
 }
 .bg-red {
-  background-color: #c90f16;
+  background-color: var(--color-primary);
 }
 
 .section-texts {

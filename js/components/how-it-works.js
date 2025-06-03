@@ -1,25 +1,33 @@
 import { howItWorksData } from "../data/howItWorksData.js";
+import { arrowTopRight } from "../svg/arrow-top-right.js";
 
 export function howItWorks() {
     let btnHTML = '';
+    let activeButtonIndex = 0;
 
     for (const { btn } of howItWorksData) {
         btnHTML += `
-            <button type="button">
+            <button class="${activeButtonIndex++ ? '' : 'active'}" type="button">
                 <img src="./img/how-it-works/${btn.icon}" alt="">
                 ${btn.text}
             </button>`;
     }
 
     let contentHTML = '';
+    let activeContentIndex = 0;
 
     for (const { content } of howItWorksData) {
         contentHTML += `
-            <div>
+            <div class="card ${activeContentIndex++ ? '' : 'active'}">
                 <img src="./img/how-it-works/${content.img}" alt="">
-                <p>${content.title}</p>
-                <p>${content.description}</p>
-                <a href="${content.link.href}">${content.link.text}</a>
+                <div class="content">
+                    <p class="title">${content.title}</p>
+                    <p class="desc">${content.description}</p>
+                    <a class="link" href="${content.link.href}">
+                        ${content.link.text}
+                        ${arrowTopRight()}
+                    </a>
+                </div>
             </div>`;
     }
 
@@ -30,9 +38,9 @@ export function howItWorks() {
                     <div class="section-tag">How it work</div>
                     <h2 class="section-title">How to Work Our Electricity Service</h2>
                     <p class="section-desc">Throughout the process, transparency & communication, keeping you informed.</p>
-                    ${btnHTML}
+                    <div class="how-it-works-buttons">${btnHTML}</div>
                 </div>
-                <div class="col-12 col-lg-7 col-xl-8">${contentHTML}</div>
+                <div class="col-12 col-lg-7 col-xl-8 how-it-works-content">${contentHTML}</div>
             </div>
         </div>`;
 
