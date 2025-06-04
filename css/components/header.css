@@ -80,7 +80,8 @@
   left: 0;
   padding: 2rem;
   translate: -100% 0;
-  transition: all 1s;
+  transition: all 0.5s;
+  overflow: auto;
 }
 .mobile-main-header.show {
   translate: 0 0;
@@ -89,6 +90,12 @@
 .mobile-main-header .logo {
   width: auto;
   height: 2.5rem;
+}
+.mobile-main-header .close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 2rem;
 }
 .mobile-main-header .main-nav {
   display: flex;
@@ -124,6 +131,23 @@
   font-size: 1.3rem;
 }
 .mobile-main-header .details-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 .mobile-main-header .details-icon {
+  font-size: 1.5rem;
+  width: 1.8em;
+  height: 1.8em;
+  text-align: center;
+  line-height: 1.75em;
+  background-color: #fff;
+  color: #000;
+  border-radius: 50%;
+  text-decoration: none;
+}
+.mobile-main-header .details-icon:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+  transition: all 0.3s;
 }
