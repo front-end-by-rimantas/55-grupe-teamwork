@@ -13,7 +13,7 @@ export function header() {
         </header>
         <div class="mobile-main-header">
             <img class="logo" src="./img/logo.webp" alt="Logo">
-            ${headerMenu(headerMenuData)}
+            ${mobileHeaderMenu(headerMenuData)}
             ${detailsGroupWithIcons(contactInfoData)}
             ${detailsGroupWithIcons(ourLocationData)}
             ${detailsGroupForSocials(socialsData)}
@@ -44,6 +44,30 @@ export function header() {
 }
 
 function headerMenu(data) {
+    let HTML = '';
+
+    for (const link of data) {
+        if (link.subMenu) {
+            let subMenuHTML = '';
+
+            for (const subLink of link.subMenu) {
+                subMenuHTML += `<a class="link" href="${subLink.href}">${subLink.text}</a>`;
+            }
+
+            HTML += `
+                <div>
+                    <a class="link" href="${link.href}">${link.text}</a>
+                    <div>${subMenuHTML}</div>
+                </div>`;
+        } else {
+            HTML += `<a class="link" href="${link.href}">${link.text}</a>`;
+        }
+    }
+
+    return `<nav class="main-nav">${HTML}</nav>`;
+}
+
+function mobileHeaderMenu(data) {
     let HTML = '';
 
     for (const link of data) {

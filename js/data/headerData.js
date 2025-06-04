@@ -1,11 +1,26 @@
 export const headerMenuData = [
     { href: '#', text: 'Home' },
-    { href: '#', text: 'About' },
-    { href: '#', text: 'Services' },
+    {
+        href: '#',
+        text: 'About',
+        subMenu: [
+            { href: '#', text: 'Company' },
+            { href: '#', text: 'Team' },
+        ],
+    },
+    {
+        href: '#',
+        text: 'Services',
+        subMenu: [
+            { href: '#', text: 'Design' },
+            { href: '#', text: 'Development' },
+            { href: '#', text: 'UX' },
+            { href: '#', text: 'Management' },
+        ],
+    },
     { href: '#', text: 'Blog' },
     { href: '#', text: 'Contact us' },
 ];
-
 
 export const contactInfoData = {
     title: 'Contact info',
