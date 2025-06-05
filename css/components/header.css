@@ -3,6 +3,7 @@
   top: 0;
   left: 0;
   right: 0;
+  z-index: 1;
   padding-top: 0;
   padding-bottom: 0;
   background-color: #000;
@@ -91,10 +92,8 @@
   background-color: #000;
   color: #fff;
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
+  z-index: 2;
   padding: 2rem;
   translate: -100% 0;
   transition: all 0.5s;
@@ -154,8 +153,6 @@
 }
 .mobile-main-header .dropdown.expanded .dropdown-content {
   display: flex;
-}
-.mobile-main-header .dropdown-content > .link {
 }
 
 .mobile-main-header .details-group {
