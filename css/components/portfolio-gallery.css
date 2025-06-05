@@ -1,0 +1,23 @@
+.portfolio-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+.portfolio-gallery .card {
+}
+.portfolio-gallery .img {
+}
+.portfolio-gallery .title {
+}
+
+@media (min-width: 768px) {
+  .portfolio-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 992px) {
+  .portfolio-gallery {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
