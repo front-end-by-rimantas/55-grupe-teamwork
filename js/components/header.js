@@ -24,6 +24,7 @@ export function header() {
         .getElementById('app')
         .insertAdjacentHTML('beforeend', HTML);
 
+    const mainHeaderDOM = document.querySelector('.main-header');
     const hamburgerDOM = document.querySelector('.hamburger');
     const mobileHeaderDOM = document.querySelector('.mobile-main-header');
     const closeDOM = document.querySelector('.close');
@@ -39,6 +40,14 @@ export function header() {
     addEventListener('keydown', event => {
         if (event.key === 'Escape') {
             mobileHeaderDOM.classList.remove('show');
+        }
+    });
+
+    addEventListener('scroll', () => {
+        if (scrollY > 50) {
+            mainHeaderDOM.classList.add('header-fixed');
+        } else {
+            mainHeaderDOM.classList.remove('header-fixed');
         }
     });
 }

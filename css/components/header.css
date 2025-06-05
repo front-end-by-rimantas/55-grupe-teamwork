@@ -171,11 +171,13 @@
 @media (min-width: 992px) {
   .main-header {
     background-color: transparent;
+    transition: all 0.3s;
   }
   .main-header .header-content {
     background-color: #7778;
     backdrop-filter: blur(7px);
     padding: 1.5rem;
+    transition: all 0.3s;
   }
   .main-header.header-fixed {
     background-color: #000;
