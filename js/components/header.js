@@ -80,7 +80,21 @@ function mobileHeaderMenu(data) {
     let HTML = '';
 
     for (const link of data) {
-        HTML += `<a class="link" href="${link.href}">${link.text}</a>`;
+        if (link.subMenu) {
+            let subMenuHTML = '';
+
+            for (const subLink of link.subMenu) {
+                subMenuHTML += `<a class="link" href="${subLink.href}">${subLink.text}</a>`;
+            }
+
+            HTML += `
+                <div class="dropdown">
+                    <a class="link" href="${link.href}">${link.text}</a>
+                    <div class="dropdown-content">${subMenuHTML}</div>
+                </div>`;
+        } else {
+            HTML += `<a class="link" href="${link.href}">${link.text}</a>`;
+        }
     }
 
     return `<nav class="main-nav">${HTML}</nav>`;
