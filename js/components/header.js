@@ -55,9 +55,9 @@ function headerMenu(data) {
             }
 
             HTML += `
-                <div>
-                    <a class="link" href="${link.href}">${link.text}</a>
-                    <div>${subMenuHTML}</div>
+                <div class="dropdown">
+                    <a class="link" href="${link.href}">${link.text}<i class="fa fa-angle-down"></i></a>
+                    <div class="dropdown-content">${subMenuHTML}</div>
                 </div>`;
         } else {
             HTML += `<a class="link" href="${link.href}">${link.text}</a>`;
