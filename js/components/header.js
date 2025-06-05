@@ -26,8 +26,10 @@ export function header() {
 
     const mainHeaderDOM = document.querySelector('.main-header');
     const hamburgerDOM = document.querySelector('.hamburger');
-    const mobileHeaderDOM = document.querySelector('.mobile-main-header');
     const closeDOM = document.querySelector('.close');
+    const mobileHeaderDOM = document.querySelector('.mobile-main-header');
+    const mobileMenuPlusDOM = mobileHeaderDOM.querySelectorAll('.fa-plus');
+    const mobileMenuMinusDOM = mobileHeaderDOM.querySelectorAll('.fa-minus');
 
     hamburgerDOM.addEventListener('click', () => {
         mobileHeaderDOM.classList.add('show');
@@ -36,6 +38,18 @@ export function header() {
     closeDOM.addEventListener('click', () => {
         mobileHeaderDOM.classList.remove('show');
     });
+
+    for (const plusDOM of mobileMenuPlusDOM) {
+        plusDOM.addEventListener('click', () => {
+            plusDOM.parentNode.parentNode.classList.add('expanded');
+        });
+    }
+
+    for (const minusDOM of mobileMenuMinusDOM) {
+        minusDOM.addEventListener('click', () => {
+            minusDOM.parentNode.parentNode.classList.remove('expanded');
+        });
+    }
 
     addEventListener('keydown', event => {
         if (event.key === 'Escape') {
@@ -89,7 +103,11 @@ function mobileHeaderMenu(data) {
 
             HTML += `
                 <div class="dropdown">
-                    <a class="link" href="${link.href}">${link.text}</a>
+                    <a class="link" href="${link.href}">
+                        ${link.text}
+                        <i class="fa fa-plus"></i>
+                        <i class="fa fa-minus"></i>
+                    </a>
                     <div class="dropdown-content">${subMenuHTML}</div>
                 </div>`;
         } else {
