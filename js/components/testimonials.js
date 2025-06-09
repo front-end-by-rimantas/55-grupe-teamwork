@@ -9,7 +9,21 @@ export function testimonials() {
                     <a href="#">View all reviews</a>
                 </div>
                 <div class="col-12 col-lg-7">
-                    TESTIMONIALS CONTENT
+                    <div class="carousel">
+                        <div class="carousel-content">
+                            <div class="carousel-item">
+                                <img src="./img/services/service-img6.webp">
+                            </div>
+                        </div>
+                        <div class="carousel-actions">
+                            <i class="fa fa-angle-left"></i>
+                            <div class="circle active"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>`;

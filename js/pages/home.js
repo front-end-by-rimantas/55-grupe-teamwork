@@ -16,11 +16,12 @@ import { subscribe } from "../components/subscribe.js";
 import { testimonials } from "../components/testimonials.js";
 
 header();
-portfolioGalleryMultiSelect();
-portfolioGallery();
 hero();
+testimonials();
 aboutUs();
 services();
+portfolioGalleryMultiSelect();
+portfolioGallery();
 howItWorks();
 testimonials();
 ourTeam();

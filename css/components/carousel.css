@@ -1,0 +1,34 @@
+.carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.carousel .carousel-content {
+}
+.carousel .carousel-item {
+}
+.carousel .carousel-item img {
+  max-height: 20rem;
+  object-fit: cover;
+}
+.carousel .carousel-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.carousel .carousel-actions .fa {
+  font-size: 2rem;
+  cursor: pointer;
+}
+.carousel .carousel-actions .circle {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.carousel .carousel-actions .circle:hover,
+.carousel .carousel-actions .circle.active {
+  background-color: var(--color-primary);
+}
