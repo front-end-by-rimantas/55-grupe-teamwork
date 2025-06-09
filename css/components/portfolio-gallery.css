@@ -1,23 +1,49 @@
-.portfolio-gallery {
+.gallery-filter {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.gallery-filter button {
+  background-color: #fff;
+  color: var(--color-primary);
+  padding: 0.5em 1em;
+  font-size: 1.2rem;
+  line-height: 1em;
+  border: 0.1em solid var(--color-primary);
+  border-radius: 0.3em;
+  cursor: pointer;
+}
+.gallery-filter button:hover,
+.gallery-filter button.active {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.gallery-content {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
 }
-.portfolio-gallery .card {
+.gallery-content .card {
 }
-.portfolio-gallery .img {
+.gallery-content .img {
+  max-height: 10rem;
+  object-fit: cover;
 }
-.portfolio-gallery .title {
+.gallery-content .title {
+  font-size: 1.5rem;
 }
 
 @media (min-width: 768px) {
-  .portfolio-gallery {
+  .gallery-content {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (min-width: 992px) {
-  .portfolio-gallery {
+  .gallery-content {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
