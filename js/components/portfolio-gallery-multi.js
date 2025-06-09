@@ -1,7 +1,7 @@
 import { portfolioData } from "../data/portfolioData.js";
 import { capitalize } from "../lib/capitalize.js";
 
-export function portfolioGallery() {
+export function portfolioGalleryMultiSelect() {
     const uniqueTags = [];
     let cardsHTML = '';
     let filterHTML = '';
@@ -24,7 +24,7 @@ export function portfolioGallery() {
     uniqueTags.sort();
 
     for (const tag of uniqueTags) {
-        filterHTML += `<button>${capitalize(tag)}</button>`;
+        filterHTML += `<button class="active">${capitalize(tag)}</button>`;
     }
 
     const HTML = `
@@ -32,16 +32,15 @@ export function portfolioGallery() {
             <div class="row">
                 <div class="col-12 col-lg-6 m-lg-3 section-texts section-texts-center">
                     <div class="section-tag">Recent projects</div>
-                    <h2 class="section-title">Portfolio</h2>
+                    <h2 class="section-title">Portfolio (multi)</h2>
                     <p class="section-desc">From residential households to commercial enterprises, we provide reliable, efficient, and sustainable energy solutions.</p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 gallery-filter">
-                    <button class="active">All</button>
+                <div class="col-12 gallery-filter-multi">
                     ${filterHTML}
                 </div>
-                <div class="col-12 gallery-content">${cardsHTML}</div>
+                <div class="col-12 gallery-content-multi">${cardsHTML}</div>
             </div>
         </section>`;
 
@@ -49,23 +48,32 @@ export function portfolioGallery() {
         .getElementById('app')
         .insertAdjacentHTML('beforeend', HTML);
 
-    const buttonsDOM = document.querySelectorAll('.gallery-filter button');
-    const cardsDOM = document.querySelectorAll('.gallery-content .card');
+    const buttonsDOM = document.querySelectorAll('.gallery-filter-multi button');
+    const cardsDOM = document.querySelectorAll('.gallery-content-multi .card');
+
+    let activeFilters = uniqueTags;
 
     for (const buttonDOM of buttonsDOM) {
         buttonDOM.addEventListener('click', () => {
-            document.querySelector('.gallery-filter button.active').classList.remove('active');
-            buttonDOM.classList.add('active');
-
+            buttonDOM.classList.toggle('active');
             const clickedBtn = buttonDOM.textContent.toLowerCase();
+
+            if (buttonDOM.classList.contains('active')) {
+                activeFilters.push(clickedBtn);
+            } else {
+                activeFilters = activeFilters.filter(t => t !== clickedBtn);
+            }
 
             for (let i = 0; i < cardsDOM.length; i++) {
                 const cardDOM = cardsDOM[i];
 
-                if (portfolioData[i].tags.includes(clickedBtn) || clickedBtn === 'all') {
-                    cardDOM.classList.add('show');
-                } else {
-                    cardDOM.classList.remove('show');
+                cardDOM.classList.remove('show');
+
+                for (const activeTag of activeFilters) {
+                    if (portfolioData[i].tags.includes(activeTag) || clickedBtn === 'all') {
+                        cardDOM.classList.add('show');
+                        break;
+                    }
                 }
             }
         });

@@ -8,6 +8,7 @@ import { header } from "../components/header.js";
 import { hero } from "../components/hero.js";
 import { howItWorks } from "../components/how-it-works.js";
 import { ourTeam } from "../components/our-team.js";
+import { portfolioGalleryMultiSelect } from "../components/portfolio-gallery-multi.js";
 import { portfolioGallery } from "../components/portfolio-gallery.js";
 import { pricingPlan } from "../components/pricing-plan.js";
 import { services } from "../components/services.js";
@@ -15,6 +16,7 @@ import { subscribe } from "../components/subscribe.js";
 import { testimonials } from "../components/testimonials.js";
 
 header();
+portfolioGalleryMultiSelect();
 portfolioGallery();
 hero();
 aboutUs();
