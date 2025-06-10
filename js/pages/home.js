@@ -23,7 +23,7 @@ services();
 portfolioGalleryMultiSelect();
 portfolioGallery();
 howItWorks();
-testimonials();
+// testimonials();
 ourTeam();
 faq();
 contactUs();

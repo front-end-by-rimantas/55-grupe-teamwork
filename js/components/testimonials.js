@@ -1,3 +1,5 @@
+import { testimonialsData } from "../data/testimonialsData.js";
+
 export function testimonials() {
     const HTML = `
         <section class="container bg-dark testimonials">
@@ -31,4 +33,39 @@ export function testimonials() {
     document
         .getElementById('app')
         .insertAdjacentHTML('beforeend', HTML);
+
+    const imgDOM = document.querySelector('.carousel-content img');
+    const circlesDOM = document.querySelectorAll('.carousel-actions .circle');
+    const prevArrowDOM = document.querySelector('.carousel-actions .fa-angle-left');
+    const nextArrowDOM = document.querySelector('.carousel-actions .fa-angle-right');
+    let activeIndex = 0;
+
+    for (let i = 0; i < circlesDOM.length; i++) {
+        circlesDOM[i].addEventListener('click', () => {
+            circlesDOM[activeIndex].classList.remove('active');
+            activeIndex = i;
+            imgDOM.src = './img/services/' + testimonialsData[activeIndex].img;
+            circlesDOM[activeIndex].classList.add('active');
+        });
+    }
+
+    prevArrowDOM.addEventListener('click', () => {
+        circlesDOM[activeIndex].classList.remove('active');
+        activeIndex--;
+        if (activeIndex < 0) {
+            activeIndex = testimonialsData.length - 1;
+        }
+        imgDOM.src = './img/services/' + testimonialsData[activeIndex].img;
+        circlesDOM[activeIndex].classList.add('active');
+    });
+
+    nextArrowDOM.addEventListener('click', () => {
+        circlesDOM[activeIndex].classList.remove('active');
+        activeIndex++;
+        if (activeIndex === testimonialsData.length) {
+            activeIndex = 0;
+        }
+        imgDOM.src = './img/services/' + testimonialsData[activeIndex].img;
+        circlesDOM[activeIndex].classList.add('active');
+    });
 }
