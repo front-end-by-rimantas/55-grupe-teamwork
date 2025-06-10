@@ -4,6 +4,12 @@
   gap: 2rem;
 }
 .carousel .carousel-content {
+  overflow: hidden;
+}
+.carousel .carousel-content-list {
+  display: flex;
+  transition: all 1s;
+  margin-left: 0;
 }
 .carousel .carousel-item {
 }

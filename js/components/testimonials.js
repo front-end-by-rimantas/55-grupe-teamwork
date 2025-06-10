@@ -1,6 +1,26 @@
 import { testimonialsData } from "../data/testimonialsData.js";
 
 export function testimonials() {
+    const expandedList = [
+        testimonialsData.at(-1),
+        ...testimonialsData,
+        testimonialsData.at(0),
+    ];
+    const count = expandedList.length;
+    let itemsHTML = '';
+
+
+    for (const item of expandedList) {
+        itemsHTML += `
+            <div class="carousel-item" style="width: ${100 / count}%;">
+                <img src="./img/services/${item.img}">
+            </div>`;
+    }
+
+    const circlesHTML = '<div class="circle"></div>'
+        .repeat(testimonialsData.length)
+        .replace('circle', 'circle active');
+
     const HTML = `
         <section class="container bg-dark testimonials">
             <div class="row">
@@ -13,16 +33,13 @@ export function testimonials() {
                 <div class="col-12 col-lg-7">
                     <div class="carousel">
                         <div class="carousel-content">
-                            <div class="carousel-item">
-                                <img src="./img/services/service-img6.webp">
+                            <div class="carousel-content-list" style="width: ${count}00%; margin-left: -100%;">
+                                ${itemsHTML}
                             </div>
                         </div>
                         <div class="carousel-actions">
                             <i class="fa fa-angle-left"></i>
-                            <div class="circle active"></div>
-                            <div class="circle"></div>
-                            <div class="circle"></div>
-                            <div class="circle"></div>
+                            ${circlesHTML}
                             <i class="fa fa-angle-right"></i>
                         </div>
                     </div>
@@ -34,38 +51,87 @@ export function testimonials() {
         .getElementById('app')
         .insertAdjacentHTML('beforeend', HTML);
 
-    const imgDOM = document.querySelector('.carousel-content img');
+    const contentListDOM = document.querySelector('.carousel-content .carousel-content-list');
     const circlesDOM = document.querySelectorAll('.carousel-actions .circle');
     const prevArrowDOM = document.querySelector('.carousel-actions .fa-angle-left');
     const nextArrowDOM = document.querySelector('.carousel-actions .fa-angle-right');
-    let activeIndex = 0;
+    let activeIndex = 1;
+    let animationInProgress = false;
 
     for (let i = 0; i < circlesDOM.length; i++) {
         circlesDOM[i].addEventListener('click', () => {
-            circlesDOM[activeIndex].classList.remove('active');
-            activeIndex = i;
-            imgDOM.src = './img/services/' + testimonialsData[activeIndex].img;
-            circlesDOM[activeIndex].classList.add('active');
+            if (animationInProgress) {
+                return;
+            }
+
+            circlesDOM[activeIndex - 1].classList.remove('active');
+            activeIndex = i + 1;
+            contentListDOM.style.marginLeft = activeIndex * -100 + '%';
+            circlesDOM[activeIndex - 1].classList.add('active');
+            animationInProgress = true;
+            setTimeout(() => {
+                animationInProgress = false;
+            }, 1000);
         });
     }
 
     prevArrowDOM.addEventListener('click', () => {
-        circlesDOM[activeIndex].classList.remove('active');
-        activeIndex--;
-        if (activeIndex < 0) {
-            activeIndex = testimonialsData.length - 1;
+        if (animationInProgress) {
+            return;
         }
-        imgDOM.src = './img/services/' + testimonialsData[activeIndex].img;
-        circlesDOM[activeIndex].classList.add('active');
+        animationInProgress = true;
+
+        circlesDOM[activeIndex - 1].classList.remove('active');
+        activeIndex--;
+        if (activeIndex < 1) {
+            contentListDOM.style.marginLeft = activeIndex * -100 + '%';
+
+            setTimeout(() => {
+                contentListDOM.style.transition = 'none';
+                activeIndex = testimonialsData.length;
+                contentListDOM.style.marginLeft = activeIndex * -100 + '%';
+                setTimeout(() => {
+                    contentListDOM.style.transition = 'all 1s';
+                }, 1);
+                circlesDOM[activeIndex - 1].classList.add('active');
+                animationInProgress = false;
+            }, 1000);
+        } else {
+            contentListDOM.style.marginLeft = activeIndex * -100 + '%';
+            circlesDOM[activeIndex - 1].classList.add('active');
+            setTimeout(() => {
+                animationInProgress = false;
+            }, 1000);
+        }
     });
 
     nextArrowDOM.addEventListener('click', () => {
-        circlesDOM[activeIndex].classList.remove('active');
-        activeIndex++;
-        if (activeIndex === testimonialsData.length) {
-            activeIndex = 0;
+        if (animationInProgress) {
+            return;
         }
-        imgDOM.src = './img/services/' + testimonialsData[activeIndex].img;
-        circlesDOM[activeIndex].classList.add('active');
+        animationInProgress = true;
+
+        circlesDOM[activeIndex - 1].classList.remove('active');
+        activeIndex++;
+        if (activeIndex === testimonialsData.length + 1) {
+            contentListDOM.style.marginLeft = activeIndex * -100 + '%';
+
+            setTimeout(() => {
+                contentListDOM.style.transition = 'none';
+                activeIndex = 1;
+                contentListDOM.style.marginLeft = activeIndex * -100 + '%';
+                setTimeout(() => {
+                    contentListDOM.style.transition = 'all 1s';
+                }, 1);
+                circlesDOM[activeIndex - 1].classList.add('active');
+                animationInProgress = false;
+            }, 1000);
+        } else {
+            contentListDOM.style.marginLeft = activeIndex * -100 + '%';
+            circlesDOM[activeIndex - 1].classList.add('active');
+            setTimeout(() => {
+                animationInProgress = false;
+            }, 1000);
+        }
     });
 }
