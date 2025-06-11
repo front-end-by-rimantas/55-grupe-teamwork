@@ -1,4 +1,20 @@
+import { faqData } from "../data/faqData.js";
+
 export function faq() {
+    let itemsHTML = '';
+
+    for (let i = 0; i < faqData.length; i++) {
+        const faq = faqData[i];
+        itemsHTML += `
+            <div class="accordion-item ${i ? '' : 'expand'}">
+                <button class="accordion-title">
+                    ${faq.question}
+                    <i class="fa fa-angle-down"></i>
+                </button>
+                <p class="accordion-content">${faq.answer}</p>
+            </div>`;
+    }
+
     const HTML = `
         <section class="container bg-grey">
             <div class="row">
@@ -8,28 +24,15 @@ export function faq() {
                     <p class="section-desc">That's why we've compiled a list of frequently asked questions to help make the process as smooth as possible for you.</p>
                     <a href="#">Have any questions</a>
                 </div>
-                <div class="col-12 col-lg-6 m-lg-1">
-                    <div>
-                        <p>How do I sign up for your electricity services?</p>
-                        <p>Whether you're wondering about our pricing plans, process installation , or sustainability initiatives.</p>
-                    </div>
-                    <div>
-                        <p>How do I sign up for your electricity services?</p>
-                        <p>Whether you're wondering about our pricing plans, process installation , or sustainability initiatives.</p>
-                    </div>
-                    <div>
-                        <p>How do I sign up for your electricity services?</p>
-                        <p>Whether you're wondering about our pricing plans, process installation , or sustainability initiatives.</p>
-                    </div>
-                    <div>
-                        <p>How do I sign up for your electricity services?</p>
-                        <p>Whether you're wondering about our pricing plans, process installation , or sustainability initiatives.</p>
-                    </div>
-                </div>
+                <div class="col-12 col-lg-6 m-lg-1 accordion">${itemsHTML}</div>
             </div>
         </section>`;
 
     document
         .getElementById('app')
         .insertAdjacentHTML('beforeend', HTML);
+
+    const accordionItemsDOM = document.querySelectorAll('.accordion-item');
+
+    // accordionItemsDOM[0].classList.add('expand');
 }
