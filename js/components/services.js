@@ -4,15 +4,19 @@ import { arrowTopRight } from "../svg/arrow-top-right.js";
 export function services() {
     let cardsHTML = '';
 
-    for (let i = 0; i < 3; i++) {
-        const service = servicesData[i];
+    let count = 1;
+    for (const service of servicesData) {
+        if (count > 3) {
+            break;
+        }
+
         cardsHTML += `
             <div class="col-12 col-md-6 col-lg-4 service-card">
                 <div class="service-img">
                     <img src="./img/services/${service.img}" alt="${service.imgAlt}">
                 </div>
                 <div class="service-content">
-                    <div class="service-number">0${i + 1}</div>
+                    <div class="service-number">${count < 10 ? '0' + count : count}</div>
                     <h3 class="service-title">${service.title}</h3>
                     <p class="service-desc">${service.description}</p>
                     <a class="service-link" href="${service.link}">
@@ -21,6 +25,8 @@ export function services() {
                     </a>
                 </div>
             </div>`;
+
+        count++;
     }
 
     const HTML = `
