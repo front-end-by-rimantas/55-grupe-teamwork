@@ -33,6 +33,20 @@ export function faq() {
         .insertAdjacentHTML('beforeend', HTML);
 
     const accordionItemsDOM = document.querySelectorAll('.accordion-item');
+    let activeIndex = 0;
 
-    // accordionItemsDOM[0].classList.add('expand');
+    for (let i = 0; i < accordionItemsDOM.length; i++) {
+        const itemDOM = accordionItemsDOM[i];
+        itemDOM
+            .querySelector('.accordion-title')
+            .addEventListener('click', () => {
+                if (activeIndex === i) {
+                    itemDOM.classList.toggle('expand');
+                } else {
+                    accordionItemsDOM[activeIndex].classList.remove('expand');
+                    activeIndex = i;
+                    itemDOM.classList.add('expand');
+                }
+            });
+    }
 }
