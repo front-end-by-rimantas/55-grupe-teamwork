@@ -19,7 +19,7 @@ export function howItWorks() {
     for (const { content } of howItWorksData) {
         contentHTML += `
             <div class="card ${activeContentIndex++ ? '' : 'active'}">
-                <img src="./img/how-it-works/${content.img}" alt="">
+                <img src="./img/services/${content.img}" alt="">
                 <div class="content">
                     <p class="title">${content.title}</p>
                     <p class="desc">${content.description}</p>

@@ -6,7 +6,7 @@ export const howItWorksData = [
             text: 'Power Path Unveiling Our Process',
         },
         content: {
-            img: 'work-img1.webp',
+            img: 'service-img1.webp',
             title: 'Power Path Unveiling Our Process',
             description: 'Our process begins with a thorough assessment of energy needs and goals. Once we understand your requirements, we work closely with you to develop.',
             link: {
@@ -22,7 +22,7 @@ export const howItWorksData = [
             text: 'Electro Flow Decoding Our Method',
         },
         content: {
-            img: 'work-img1.webp',
+            img: 'service-img2.webp',
             title: 'Electro Flow Decoding Our Method',
             description: 'Our process begins with a thorough assessment of energy needs and goals. Once we understand your requirements, we work closely with you to develop.',
             link: {
@@ -37,7 +37,7 @@ export const howItWorksData = [
             text: 'Energetic Engine Behind Scenes',
         },
         content: {
-            img: 'work-img1.webp',
+            img: 'service-img3.webp',
             title: 'Energetic Engine Behind Scenes',
             description: 'Our process begins with a thorough assessment of energy needs and goals. Once we understand your requirements, we work closely with you to develop.',
             link: {
@@ -52,7 +52,7 @@ export const howItWorksData = [
             text: 'Watt Works Discover Operations',
         },
         content: {
-            img: 'work-img1.webp',
+            img: 'service-img4.webp',
             title: 'Watt Works Discover Operations',
             description: 'Our process begins with a thorough assessment of energy needs and goals. Once we understand your requirements, we work closely with you to develop.',
             link: {

@@ -41,6 +41,10 @@
 .how-it-works-content .card.active {
   display: flex;
 }
+.card img {
+  max-height: 20rem;
+  object-fit: cover;
+}
 .card .content {
   display: flex;
   flex-direction: column;

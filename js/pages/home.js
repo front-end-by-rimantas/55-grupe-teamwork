@@ -17,13 +17,12 @@ import { testimonials } from "../components/testimonials.js";
 
 header();
 hero();
-testimonials();
 aboutUs();
 services();
 portfolioGalleryMultiSelect();
 portfolioGallery();
 howItWorks();
-// testimonials();
+testimonials();
 ourTeam();
 faq();
 contactUs();
