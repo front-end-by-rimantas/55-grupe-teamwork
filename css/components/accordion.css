@@ -43,6 +43,7 @@
   display: none;
   padding: 0 1rem 1rem;
   opacity: 0.8;
+  transition: all 0.3s;
 }
 .accordion .accordion-item.expand .accordion-content {
   display: block;
